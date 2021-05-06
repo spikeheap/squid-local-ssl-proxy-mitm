@@ -27,10 +27,14 @@ cat squid-ca-cert.pem squid-ca-key.pem >> squid-ca-cert-key.pem
 /usr/local/Cellar/squid/4.14/libexec/security_file_certgen -c -s /var/lib/ssl_db -M 16MB
 ```
 
-3. Run Squid
+3. Fix the paths in squid.conf
+
+There are several absolute paths in the config file. Replace `/Users/rb/src/squid` with your `pwd`.
+
+4. Run Squid
 
 ```
 /usr/local/sbin/squid -f squid.conf --foreground
 ```
 
-4. Set your HTTP/HTTPS proxy to point to 127.0.0.1:3128
+5. Set your HTTP/HTTPS proxy to point to 127.0.0.1:3128
